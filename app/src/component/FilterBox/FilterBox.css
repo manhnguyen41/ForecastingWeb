@@ -1,0 +1,38 @@
+.filter-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;  /* Add some padding to the container */
+}
+
+.filter-box > * {
+  margin-bottom: 10px; /* Add some vertical spacing between the elements */
+}
+
+.filter-box .year-storms-row {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.filter-box .year-storms-row span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.filter-box .storms-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.filter-box .storms-list a {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.filter-box .storms-list a:hover {
+  text-decoration: underline;
+}

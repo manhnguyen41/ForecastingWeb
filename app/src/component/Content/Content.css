@@ -1,0 +1,30 @@
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; /* Align elements vertically (heading above images) */
+}
+
+.content-item {
+  padding: 10px;
+}
+
+.content-container .content-item .image-row {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  align-items: center;
+}
+
+.content-container .content-item .image-box {
+  border: 1px solid #ccc; 
+  padding: 10px;
+  margin-right: 10px; 
+  margin-bottom: 10px;
+  max-width: 150px; 
+  text-align: center; 
+}
+
+.content-container .content-item .image-box img {
+  max-width: 100%; 
+  height: auto; 
+}

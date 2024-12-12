@@ -1,0 +1,37 @@
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+}
+
+.navbar {
+  grid-column: span 4; /* Make NavBar span all columns */
+}
+
+.headline {
+  grid-column: span 4; /* Make HeadLine span all columns */
+}
+
+.col1 {
+  grid-column: span 1;
+}
+
+.col2 {
+  grid-column: span 2; /* Adjust the span as needed */
+}
+
+.col3 {
+  grid-column: span 3; /* Adjust the span as needed */
+}
+
+.col4 {
+  grid-column: span 4; /* Make Column 4 span all columns */
+}
+
+.vertical-divider {
+  border-right: 1px solid rgba(0, 0, 0, 0.75);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}

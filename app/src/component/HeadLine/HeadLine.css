@@ -1,0 +1,19 @@
+.headline {
+    border: 1px solid #ccc; /* Border around the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    text-align: center; /* Center the text */
+    margin: 20px; /* Margin around the box */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.line1 {
+    font-size: 27px; /* Larger font size */
+    margin: 0; /* Remove default margin */
+}
+
+.line2 {
+    font-size: 9px; /* Smaller font size */
+    margin: 0; /* Remove default margin */
+    font-style: italic;
+}
