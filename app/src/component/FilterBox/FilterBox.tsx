@@ -11,7 +11,6 @@ interface FilterBoxProps {
 
 const FilterBox: React.FC<FilterBoxProps> = ({
   stormData,
-  selectedStorm,
   onSelectStorm,
 }) => {
   const [filterText, setFilterText] = useState("");

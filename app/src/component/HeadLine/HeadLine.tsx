@@ -1,5 +1,4 @@
-import React from 'react';
-import './HeadLine.css'; // Assuming you have a CSS file for styling
+import './HeadLine.css'; 
 
 function HeadLine() {
   return (
