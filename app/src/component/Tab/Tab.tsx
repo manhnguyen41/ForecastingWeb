@@ -1,5 +1,5 @@
 import React from 'react';
-import './tab.css';
+import './Tab.css';
 
 interface ButtonProps {
   children: React.ReactNode;
