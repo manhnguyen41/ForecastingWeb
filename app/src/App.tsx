@@ -67,10 +67,7 @@ const App: React.FC = () => {
 
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
-  };
-
-  console.log(import.meta.env.VITE_BACKEND_HOST);
-  
+  };  
 
   return (
     <Router>
