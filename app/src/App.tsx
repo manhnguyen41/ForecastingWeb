@@ -25,7 +25,7 @@ const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   useEffect(() => {
-    fetch("http://localhost:8000/get-storm-data/")
+    fetch(`${import.meta.env.VITE_BACKEND_HOST}get-storm-data/`)
       .then((response) => response.json())
       .then((data) => {
         setStormData(data);
@@ -58,7 +58,6 @@ const App: React.FC = () => {
 
     // Sort dates to find min and max
     dates.sort();
-    console.log(dates[0]);
     setSelectedDate(stringToDate(dates[0]));
     return {
       minDate: dates[0],

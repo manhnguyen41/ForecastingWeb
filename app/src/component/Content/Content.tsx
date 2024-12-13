@@ -25,7 +25,7 @@ const Content: React.FC<ContentProps> = ({ stormData, selectedStorm, selectedDat
           {stormImages.length > 0 ? (
             stormImages.map((image: string, index: number) => (
               <div key={index} className="image-box">
-                <img src={`http://localhost:8000/static/images/${image}`} alt={selectedStorm} />
+                <img src={`${import.meta.env.VITE_BACKEND_HOST}static/images/${image}`} alt={selectedStorm} />
               </div>
             ))
           ) : (
