@@ -69,6 +69,9 @@ const App: React.FC = () => {
     setSelectedDate(date);
   };
 
+  console.log(import.meta.env.VITE_BACKEND_HOST);
+  
+
   return (
     <Router>
       <div className="app-grid">
