@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import NavBar from "./component/NavBar/NavBar";
 import HeadLine from "./component/HeadLine/HeadLine";
@@ -19,7 +19,7 @@ const stringToDate = (date: string) => {
 };
 
 const App: React.FC = () => {
-  const [stormData, setStormData] = useState<any>({
+  const [stormData] = useState<any>({
     "2023": {
       "TALIM": {
         "20230703": [
