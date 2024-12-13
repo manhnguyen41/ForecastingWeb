@@ -5,24 +5,22 @@ import HeadLine from "./component/HeadLine/HeadLine";
 import FilterBox from "./component/FilterBox/FilterBox";
 import Tab from "./component/Tab/Tab";
 import Content from "./component/Content/Content";
-import DateSlider from "./component/DateSlider/DateSlider";
 import "./App.css";
 
 const stringToDate = (date: string) => {
-    const year = parseInt(date.substring(0, 4));
-    const month = parseInt(date.substring(4, 6)) - 1;
-    const day = parseInt(date.substring(6, 8));
+  const year = parseInt(date.substring(0, 4));
+  const month = parseInt(date.substring(4, 6)) - 1;
+  const day = parseInt(date.substring(6, 8));
 
-    // Create a Date object
-    const dateObj = new Date(year, month, day);
-    
-    return dateObj
-  }
+  // Create a Date object
+  const dateObj = new Date(year, month, day);
+
+  return dateObj;
+};
 
 const App: React.FC = () => {
   const [stormData, setStormData] = useState<any>(null);
   const [selectedStorm, setSelectedStorm] = useState<string | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_HOST}get-storm-data/`)
@@ -37,7 +35,7 @@ const App: React.FC = () => {
   }, []);
 
   // Compute minDate and maxDate based on selectedStorm
-  const { minDate, maxDate } = useMemo(() => {
+  const { date } = useMemo(() => {
     if (!stormData || !selectedStorm) {
       return { minDate: null, maxDate: null };
     }
@@ -58,26 +56,22 @@ const App: React.FC = () => {
 
     // Sort dates to find min and max
     dates.sort();
-    setSelectedDate(stringToDate(dates[0]));
     return {
-      minDate: dates[0],
-      maxDate: dates[dates.length - 1],
+      date: dates[0],
     };
   }, [stormData, selectedStorm]);
-
-  const handleDateChange = (date: Date) => {
-    setSelectedDate(date);
-  };  
 
   return (
     <Router>
       <div className="app-grid">
         <NavBar />
-        <HeadLine />
+        <HeadLine>
+          AI-based Meteorological And Hydrological Forecasting
+        </HeadLine>
         <div className="col1"></div>
         <div className="col1">
           <Link to="/">
-            <Tab>TC Intensity Forecast</Tab>
+            <Tab>TC Intensity Estimate</Tab>
           </Link>
         </div>
         <div className="col2"></div>
@@ -97,16 +91,8 @@ const App: React.FC = () => {
           <Content
             stormData={stormData}
             selectedStorm={selectedStorm}
-            selectedDate={selectedDate}
+            date={stringToDate(date ? date : "")}
           />
-          {selectedStorm && minDate && maxDate && (
-            <DateSlider
-              selectedDate={selectedDate ? selectedDate : stringToDate(minDate)}
-              onDateChange={handleDateChange}
-              minDate={minDate}
-              maxDate={maxDate}
-            />
-          )}
         </div>
       </div>
     </Router>

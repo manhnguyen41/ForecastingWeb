@@ -7,3 +7,7 @@
     margin-right: 1px;
     text-align: center; /* Center text */
 }
+
+.tab:hover {
+    background-color: #ddd; /* Change background color on hover */
+}

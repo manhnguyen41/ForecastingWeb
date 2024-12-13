@@ -53,7 +53,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
 
   return (
     <div className="filter-box">
-      <h2>TC Intensity Forecast</h2>
+      <h2>TC Intensity Estimate</h2>
       <input
         type="text"
         placeholder="Search..."
