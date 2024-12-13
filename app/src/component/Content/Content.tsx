@@ -32,15 +32,14 @@ const Content: React.FC<ContentProps> = ({
         ) : (
           <></>
         )}
+
         <div className="image-row">
           {stormImages.length > 0 ? (
             stormImages.map((image: string, index: number) => (
               <div key={index} className="image-box">
                 <img
                   loading="lazy"
-                  src={`${
-                    import.meta.env.VITE_BACKEND_HOST
-                  }static/images/${image}`}
+                  src={image}
                   alt={selectedStorm}
                 />
               </div>

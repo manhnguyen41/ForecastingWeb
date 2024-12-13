@@ -19,20 +19,19 @@ const stringToDate = (date: string) => {
 };
 
 const App: React.FC = () => {
-  const [stormData, setStormData] = useState<any>(null);
+  const [stormData, setStormData] = useState<any>({
+    "2023": {
+      "TALIM": {
+        "20230703": [
+          "./././images/2023/TALIM/20230703/ourmethod.png",
+          "./././images/2023/TALIM/20230703/hres.png",
+          "./././images/2023/TALIM/20230703/cnn.png",
+          "./././images/2023/TALIM/20230703/xgboost.png",
+        ],
+      },
+    },
+  });
   const [selectedStorm, setSelectedStorm] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_HOST}get-storm-data/`)
-      .then((response) => response.json())
-      .then((data) => {
-        setStormData(data);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching storm data:", error);
-      });
-  }, []);
 
   // Compute minDate and maxDate based on selectedStorm
   const { date } = useMemo(() => {
