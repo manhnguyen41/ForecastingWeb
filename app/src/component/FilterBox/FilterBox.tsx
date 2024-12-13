@@ -11,10 +11,6 @@ interface FilterBoxProps {
 
 const FilterBox: React.FC<FilterBoxProps> = ({
   stormData,
-<<<<<<< HEAD
-  selectedStorm,
-=======
->>>>>>> 3a459cbdde10529c926823e1d826d17ed2f35f21
   onSelectStorm,
 }) => {
   const [filterText, setFilterText] = useState("");
