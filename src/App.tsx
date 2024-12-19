@@ -25,8 +25,6 @@ const App: React.FC = () => {
         "20230703": [
           "./././images/2023/TALIM/20230703/ourmethod.png",
           "./././images/2023/TALIM/20230703/hres.png",
-          "./././images/2023/TALIM/20230703/cnn.png",
-          "./././images/2023/TALIM/20230703/xgboost.png",
         ],
       },
     },
