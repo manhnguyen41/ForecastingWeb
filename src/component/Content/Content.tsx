@@ -28,7 +28,7 @@ const Content: React.FC<ContentProps> = ({
     <div className="content-container">
       <div className="content-item">
         {stormImages.length ? (
-          <HeadLine>{`TC Intensity Estimation for ${selectedStorm} from 00:00 ${day}/${month}/${year}`}</HeadLine>
+          <HeadLine>{`TC Intensity Estimation for ${selectedStorm} from 18:00 ${day}/${month}/${year}`}</HeadLine>
         ) : (
           <></>
         )}

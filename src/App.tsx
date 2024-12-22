@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import NavBar from "./component/NavBar/NavBar";
 import HeadLine from "./component/HeadLine/HeadLine";
 import FilterBox from "./component/FilterBox/FilterBox";
 import Tab from "./component/Tab/Tab";
 import Content from "./component/Content/Content";
 import "./App.css";
+import PrecipitationPrediction from "./component/PrecipitationPrediction/PrecipitationPrediction";
 
 const stringToDate = (date: string) => {
   const year = parseInt(date.substring(0, 4));
@@ -20,11 +21,11 @@ const stringToDate = (date: string) => {
 
 const App: React.FC = () => {
   const [stormData] = useState<any>({
-    "2023": {
-      "TALIM": {
-        "20230703": [
-          "./././images/2023/TALIM/20230703/ourmethod.png",
-          "./././images/2023/TALIM/20230703/hres.png",
+    "2024": {
+      YAGI: {
+        "20240901": [
+          "./././images/2024/YAGI/20240901/bestrack.png",
+          "./././images/2024/YAGI/20240901/comparison.png",
         ],
       },
     },
@@ -71,26 +72,38 @@ const App: React.FC = () => {
             <Tab>TC Intensity Estimate</Tab>
           </Link>
         </div>
-        <div className="col2"></div>
+        <div className="col1">
+          <Link to="/precipitation">
+            <Tab>Precipitation Prediction</Tab>
+          </Link>
+        </div>
+        <div className="col1"></div>
         <div className="col1"></div>
         <div className="col3">
           <hr />
         </div>
-        <div className="col1">
-          <FilterBox
-            stormData={stormData}
-            selectedStorm={selectedStorm}
-            onSelectStorm={setSelectedStorm}
-          />
-          <div className="vertical-divider"></div>
-        </div>
-        <div className="col3">
-          <Content
-            stormData={stormData}
-            selectedStorm={selectedStorm}
-            date={stringToDate(date ? date : "")}
-          />
-        </div>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <div className="col1">
+                <FilterBox
+                  stormData={stormData}
+                  selectedStorm={selectedStorm}
+                  onSelectStorm={setSelectedStorm}
+                />
+                <div className="vertical-divider"></div>
+              </div>
+              <div className="col3">
+                <Content
+                  stormData={stormData}
+                  selectedStorm={selectedStorm}
+                  date={stringToDate(date ? date : "")}
+                />
+              </div>
+            </>
+          } />
+          <Route path="/precipitation" element={<PrecipitationPrediction />} />
+        </Routes>
       </div>
     </Router>
   );
