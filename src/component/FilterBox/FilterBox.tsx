@@ -80,7 +80,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
     return (
       <>
         {filteredStorms.length > 0 ? (
-          filteredStorms.map(({ storm, year }) => (
+          filteredStorms.map(({ storm}) => (
             <div
               className="storm-container"
               key={storm}
