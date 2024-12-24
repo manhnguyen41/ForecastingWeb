@@ -78,8 +78,11 @@ const FilterBox: React.FC<FilterBoxProps> = ({
           filteredStorms.map((storm) => (
             <div
               className="storm-container"
-              onClick={() => {onSelectStorm(storm)
-                onSelectDate(getMinMaxDatesForStorm(storm)?.minDate??new Date())
+              onClick={() => {
+                onSelectStorm(storm);
+                onSelectDate(
+                  getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                );
               }}
             >
               <div className="storm-icon">
@@ -90,8 +93,13 @@ const FilterBox: React.FC<FilterBoxProps> = ({
               <div className="storm-details">
                 <div className="storm-title">{storm}</div>
                 <div className="storm-date">
-                  {formatDate(getMinMaxDatesForStorm(storm)?.minDate??new Date())} -{" "}
-                  {formatDate(getMinMaxDatesForStorm(storm)?.maxDate??new Date())}
+                  {formatDate(
+                    getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                  )}{" "}
+                  -{" "}
+                  {formatDate(
+                    getMinMaxDatesForStorm(storm)?.maxDate ?? new Date()
+                  )}
                 </div>
               </div>
             </div>
@@ -134,29 +142,32 @@ const FilterBox: React.FC<FilterBoxProps> = ({
         />
       </div>
       <hr className="hr-line" />
-      <div className="calendar-container">
-        <div className="calendar-date-display" onClick={toggleDatePicker}>
-          <div className="calendar-date-text">
-            {selectedDate
-              ? selectedDate.toLocaleDateString("en-GB")
-              : "Select a date"}
-          </div>
-          <div className="calendar-date-icon">
-            <img src="/icon/CalendarOutlined.svg" alt="calendar"></img>
+      <div className="calendar">
+        <div className="calendar-container">
+          <div className="calendar-date-display" onClick={toggleDatePicker}>
+            <div className="calendar-date-text">
+              {selectedDate
+                ? selectedDate.toLocaleDateString("en-GB")
+                : "Select a date"}
+            </div>
+            <div className="calendar-date-icon">
+              <img src="/icon/CalendarOutlined.svg" alt="calendar"></img>
+            </div>
           </div>
         </div>
+        {/* DatePicker dưới dạng popup */}
+        {showDatePicker && (
+          <div className="datepicker-popup">
+            <DatePicker
+              selected={selectedDate}
+              onChange={handleDateChange}
+              inline
+              dateFormat="yyyy-MM-dd"
+            />
+          </div>
+        )}
       </div>
-      {/* DatePicker dưới dạng popup */}
-      {showDatePicker && (
-        <div className="datepicker-popup">
-          <DatePicker
-            selected={selectedDate}
-            onChange={handleDateChange}
-            inline
-            dateFormat="yyyy-MM-dd"
-          />
-        </div>
-      )}
+
       <div className="matching-text">
         <span className="matching-text-bold">{numOfMatchings}</span>
         <span className="matching-text-normal">Matching</span>

@@ -7,10 +7,10 @@
   padding: 0 24px; /* Giữ nguyên padding cũ */
   background: linear-gradient(
       171deg,
-      rgba(10, 24, 59, 0.8) 0%, 
+      rgba(10, 24, 59, 0.8) 0%,
       rgba(35, 63, 139, 0.8) 83%
     ),
-    url('/filter-background.png'); /* Thêm hình nền */
+    url("/filter-background.png"); /* Thêm hình nền */
   background-size: cover; /* Hình nền bao phủ toàn bộ box */
   background-repeat: no-repeat; /* Không lặp lại */
   background-position: center; /* Căn giữa hình nền */
@@ -59,7 +59,7 @@
   padding: 8px 14px 8px 14px;
   background: transparent;
   border-radius: 8px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -97,7 +97,7 @@
   width: 100%;
   height: 1px; /* Độ cao của đường kẻ */
   opacity: 0.2; /* Độ mờ */
-  background-color: #E0E0E0; /* Màu của đường kẻ */
+  background-color: #e0e0e0; /* Màu của đường kẻ */
   border: none; /* Bỏ viền mặc định của hr */
   margin: 32px 0; /* Khoảng cách trên và dưới */
 }
@@ -118,10 +118,13 @@
   object-fit: cover; /* Đảm bảo ảnh không bị méo */
 }
 
-.calendar-container {
+.calendar {
   margin-left: auto;
-  position: relative; /* Để định vị popup DatePicker */
+  position: relative; 
   display: inline-block;
+}
+
+.calendar-container {
   padding: 6px 12px;
   border-radius: 6px;
   overflow: hidden;
@@ -161,11 +164,13 @@
 
 .datepicker-popup {
   position: absolute;
-  top: 87%; /* Position the DatePicker right below the calendar-container */
-  left: 3.3%;
+  top: 100%; /* Đặt popup ngay dưới calendar-container */
+  right: 0; /* Sát với cạnh phải của calendar-container */
   z-index: 1000;
-  background: white;
-  margin-top: 8px; /* Space between the calendar-container and the DatePicker */
+  margin-top: 8px; /* Khoảng cách giữa calendar-container và popup */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+  width: auto; /* Để popup tự động thay đổi kích thước theo nội dung */
 }
 
 .matching-text {
@@ -179,7 +184,7 @@
 .matching-text-bold {
   color: white;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0.15px;
@@ -189,7 +194,7 @@
 .matching-text-normal {
   color: white;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.15px;
@@ -207,7 +212,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
-  background: transparent; 
+  background: transparent;
   box-sizing: border-box;
 }
 
