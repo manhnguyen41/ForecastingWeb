@@ -80,39 +80,72 @@ const FilterBox: React.FC<FilterBoxProps> = ({
     return (
       <>
         {filteredStorms.length > 0 ? (
-          filteredStorms.map(({ storm}) => (
-            <div
-              className="storm-container"
-              key={storm}
-              onClick={() => {
-                onSelectStorm(storm);
-                onSelectDate(
-                  getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
-                );
-              }}
-            >
-              <div className="storm-icon">
-                <div className="storm-icon-inner">
-                  <img src="/icon/typhoon-fill.svg" alt="storm" />
-                </div>
-              </div>
-              <div className="storm-details">
-                {storm === selectedStorm ? (
-                  <div className="storm-title-chosen">{storm}</div>
-                ) : (
-                  <div className="storm-title">{storm}</div>
-                )}
-                <div className="storm-date">
-                  {formatDate(
-                    getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
-                  )}{" "}
-                  -{" "}
-                  {formatDate(
-                    getMinMaxDatesForStorm(storm)?.maxDate ?? new Date()
-                  )}
-                </div>
-              </div>
-            </div>
+          filteredStorms.map(({ storm }) => (
+            <>
+              {storm === selectedStorm ? (
+                <>
+                  <div
+                    className="storm-container-chosen"
+                    key={storm}
+                    onClick={() => {
+                      onSelectStorm(storm);
+                      onSelectDate(
+                        getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                      );
+                    }}
+                  >
+                    <div className="storm-icon">
+                      <div className="storm-icon-inner">
+                        <img src="/icon/typhoon-fill.svg" alt="storm" />
+                      </div>
+                    </div>
+                    <div className="storm-details">
+                      <div className="storm-title">{storm}</div>
+                      <div className="storm-date">
+                        {formatDate(
+                          getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                        )}{" "}
+                        -{" "}
+                        {formatDate(
+                          getMinMaxDatesForStorm(storm)?.maxDate ?? new Date()
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="storm-container"
+                    key={storm}
+                    onClick={() => {
+                      onSelectStorm(storm);
+                      onSelectDate(
+                        getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                      );
+                    }}
+                  >
+                    <div className="storm-icon">
+                      <div className="storm-icon-inner">
+                        <img src="/icon/typhoon-fill.svg" alt="storm" />
+                      </div>
+                    </div>
+                    <div className="storm-details">
+                      <div className="storm-title">{storm}</div>
+                      <div className="storm-date">
+                        {formatDate(
+                          getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                        )}{" "}
+                        -{" "}
+                        {formatDate(
+                          getMinMaxDatesForStorm(storm)?.maxDate ?? new Date()
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+            </>
           ))
         ) : (
           <div className="no-storms">No storms found</div>

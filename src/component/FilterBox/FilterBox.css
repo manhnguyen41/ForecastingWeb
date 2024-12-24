@@ -196,6 +196,21 @@
   box-sizing: border-box;
 }
 
+.storm-container-chosen {
+  margin-top: 4.5198%;
+  width: 100%;
+  padding: 2% 4.5198%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.50px #2F80ED solid;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4.5198%;
+  background: rgba(47, 128, 237, 0.20);
+  box-sizing: border-box;
+}
+
 .storm-icon {
   width: 24px;
   height: 24px;
@@ -220,15 +235,6 @@
 
 .storm-title {
   color: white;
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 29px;
-  letter-spacing: 0.15px;
-  word-wrap: break-word;
-}
-
-.storm-title-chosen {
-  color: red;
   font-size: 21px;
   font-weight: 700;
   line-height: 29px;
