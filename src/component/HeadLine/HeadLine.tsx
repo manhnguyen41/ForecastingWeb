@@ -1,10 +1,13 @@
-import './HeadLine.css'; 
+import './HeadLine.css';  // Import file CSS
 
-function HeadLine() {
+interface HeadlineProps {
+  children: React.ReactNode;
+}
+
+const HeadLine: React.FC<HeadlineProps> = ({ children }) => {
   return (
     <div className="headline">
-      <div className="line1">AI-based Meteorological And Hydrological Forecasting</div>
-      <div className="line2"></div>
+      {children}
     </div>
   );
 }

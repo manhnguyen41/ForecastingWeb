@@ -8,14 +8,14 @@ const stringToDate = (date: string) => {
 
   // Create a Date object
   const dateObj = new Date(year, month, day);
-  return dateObj
+  return dateObj;
 }
 
 interface DateSliderProps {
   selectedDate: Date;
   onDateChange: (date: Date) => void;
-  minDate: string;
-  maxDate: string;
+  minDate: Date;
+  maxDate: Date;
 }
 
 const DateSlider: React.FC<DateSliderProps> = ({ 
@@ -26,19 +26,19 @@ const DateSlider: React.FC<DateSliderProps> = ({
 }) => {
   const [sliderValue, setSliderValue] = useState(0);
 
-  const startDate = stringToDate(minDate);
-  const endDate = stringToDate(maxDate);
-  const totalDays = Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
+  const startDate = minDate;
+  const endDate = maxDate;
+  const totalIntervals = Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 6));
 
   useEffect(() => {
-    const daysDiff = Math.floor((selectedDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
-    setSliderValue(daysDiff);
+    const intervalsDiff = Math.floor((selectedDate.getTime() - startDate.getTime()) / (1000 * 3600 * 6));
+    setSliderValue(intervalsDiff);
   }, [selectedDate, startDate]);
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value);
     setSliderValue(value);
-    const newDate = new Date(startDate.getTime() + value * 24 * 60 * 60 * 1000);
+    const newDate = new Date(startDate.getTime() + value * 6 * 60 * 60 * 1000);
     onDateChange(newDate);
   };
 
@@ -46,25 +46,25 @@ const DateSlider: React.FC<DateSliderProps> = ({
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0"); 
     const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
 
     // Combine them into a formatted string
-    const formattedDate = `${year}-${month}-${day}`;
+    const formattedDate = `${year}-${month}-${day} ${hours}:00`;
     return formattedDate;
   };
 
-  
   return (
     <div className="date-slider">
       <input
         type="range"
         min={0}
-        max={totalDays}
+        max={totalIntervals}
         value={sliderValue}
         onChange={handleSliderChange}
         className="slider"
       />
       <div className="date-display">
-        {formatDate(selectedDate)}
+        {formatDate(new Date(selectedDate.getTime() - 7 * 60 * 60 * 1000))}
       </div>
     </div>
   );

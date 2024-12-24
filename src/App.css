@@ -1,15 +1,19 @@
 .app-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #f8f8f8;
+}
+
+html {
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .navbar {
-  grid-column: span 4; /* Make NavBar span all columns */
+  grid-column: span 5; /* Make NavBar span all columns */
 }
 
 .headline {
-  grid-column: span 4; /* Make HeadLine span all columns */
+  grid-column: span 5; /* Make HeadLine span all columns */
 }
 
 .col1 {
@@ -28,10 +32,81 @@
   grid-column: span 4; /* Make Column 4 span all columns */
 }
 
+.col5 {
+  grid-column: span 5; /* Make Column 4 span all columns */
+}
+
+
 .vertical-divider {
   border-right: 1px solid rgba(0, 0, 0, 0.75);
   height: 100%;
   position: absolute;
   top: 0;
   left: 100%;
+}
+
+.content {
+  padding: 24px 24px;
+}
+
+hr{
+  padding: 0px;
+  margin-bottom: 0px;    
+}
+
+.tags-container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.tags-container a {
+  text-decoration: none;
+}
+
+.first-tag {
+  border-top-left-radius: 8px;
+}
+
+.last-tag {
+  border-top-right-radius: 8px;
+}
+
+.chosen-tag {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #2F80ED;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.chosen-tag-text {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.tag {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #E0E0E0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag-text {
+  color: #444444;
+  font-size: 16px;
+  font-weight: 700;
+  word-wrap: break-word;
 }

@@ -1,43 +1,151 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import NavBar from "./component/NavBar/NavBar";
+import React, { useState, useMemo } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import HeadLine from "./component/HeadLine/HeadLine";
 import FilterBox from "./component/FilterBox/FilterBox";
 import Tab from "./component/Tab/Tab";
 import Content from "./component/Content/Content";
-import DateSlider from "./component/DateSlider/DateSlider";
 import "./App.css";
+import PrecipitationPrediction from "./component/PrecipitationPrediction/PrecipitationPrediction";
 
 const stringToDate = (date: string) => {
-    const year = parseInt(date.substring(0, 4));
-    const month = parseInt(date.substring(4, 6)) - 1;
-    const day = parseInt(date.substring(6, 8));
+  const year = parseInt(date.substring(0, 4));
+  const month = parseInt(date.substring(4, 6)) - 1;
+  const day = parseInt(date.substring(6, 8));
 
-    // Create a Date object
-    const dateObj = new Date(year, month, day);
-    
-    return dateObj
-  }
+  // Create a Date object
+  const dateObj = new Date(year, month, day);
+
+  return dateObj;
+};
 
 const App: React.FC = () => {
-  const [stormData, setStormData] = useState<any>(null);
+  const [stormData] = useState<any>({
+    "2023": {
+      "2309_SAOLA": {
+        "20230826": [
+          "public\\images\\2023\\2309_SAOLA\\20230826\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230826\\forecast.png",
+        ],
+        "20230902": [
+          "public\\images\\2023\\2309_SAOLA\\20230902\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230902\\forecast.png",
+        ],
+        "20230828": [
+          "public\\images\\2023\\2309_SAOLA\\20230828\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230828\\forecast.png",
+        ],
+        "20230901": [
+          "public\\images\\2023\\2309_SAOLA\\20230901\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230901\\forecast.png",
+        ],
+        "20230831": [
+          "public\\images\\2023\\2309_SAOLA\\20230831\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230831\\forecast.png",
+        ],
+        "20230825": [
+          "public\\images\\2023\\2309_SAOLA\\20230825\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230825\\forecast.png",
+        ],
+        "20230827": [
+          "public\\images\\2023\\2309_SAOLA\\20230827\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230827\\forecast.png",
+        ],
+        "20230829": [
+          "public\\images\\2023\\2309_SAOLA\\20230829\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230829\\forecast.png",
+        ],
+        "20230830": [
+          "public\\images\\2023\\2309_SAOLA\\20230830\\tracking.png",
+          "public\\images\\2023\\2309_SAOLA\\20230830\\forecast.png",
+        ],
+      },
+      "2314_KOINU": {
+        "20231009": [
+          "public\\images\\2023\\2314_KOINU\\20231009\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231009\\forecast.png",
+        ],
+        "20231002": [
+          "public\\images\\2023\\2314_KOINU\\20231002\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231002\\forecast.png",
+        ],
+        "20231003": [
+          "public\\images\\2023\\2314_KOINU\\20231003\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231003\\forecast.png",
+        ],
+        "20230930": [
+          "public\\images\\2023\\2314_KOINU\\20230930\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20230930\\forecast.png",
+        ],
+        "20231005": [
+          "public\\images\\2023\\2314_KOINU\\20231005\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231005\\forecast.png",
+        ],
+        "20231004": [
+          "public\\images\\2023\\2314_KOINU\\20231004\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231004\\forecast.png",
+        ],
+        "20231006": [
+          "public\\images\\2023\\2314_KOINU\\20231006\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231006\\forecast.png",
+        ],
+        "20231007": [
+          "public\\images\\2023\\2314_KOINU\\20231007\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231007\\forecast.png",
+        ],
+        "20231001": [
+          "public\\images\\2023\\2314_KOINU\\20231001\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231001\\forecast.png",
+        ],
+        "20231008": [
+          "public\\images\\2023\\2314_KOINU\\20231008\\tracking.png",
+          "public\\images\\2023\\2314_KOINU\\20231008\\forecast.png",
+        ],
+      },
+      "2305_DOKSURI": {
+        "20230724": [
+          "public\\images\\2023\\2305_DOKSURI\\20230724\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230724\\forecast.png",
+        ],
+        "20230729": [
+          "public\\images\\2023\\2305_DOKSURI\\20230729\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230729\\forecast.png",
+        ],
+        "20230723": [
+          "public\\images\\2023\\2305_DOKSURI\\20230723\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230723\\forecast.png",
+        ],
+        "20230727": [
+          "public\\images\\2023\\2305_DOKSURI\\20230727\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230727\\forecast.png",
+        ],
+        "20230726": [
+          "public\\images\\2023\\2305_DOKSURI\\20230726\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230726\\forecast.png",
+        ],
+        "20230725": [
+          "public\\images\\2023\\2305_DOKSURI\\20230725\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230725\\forecast.png",
+        ],
+        "20230728": [
+          "public\\images\\2023\\2305_DOKSURI\\20230728\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230728\\forecast.png",
+        ],
+        "20230722": [
+          "public\\images\\2023\\2305_DOKSURI\\20230722\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230722\\forecast.png",
+        ],
+        "20230721": [
+          "public\\images\\2023\\2305_DOKSURI\\20230721\\tracking.png",
+          "public\\images\\2023\\2305_DOKSURI\\20230721\\forecast.png",
+        ],
+      },
+    },
+  });
   const [selectedStorm, setSelectedStorm] = useState<string | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_HOST}get-storm-data/`)
-      .then((response) => response.json())
-      .then((data) => {
-        setStormData(data);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching storm data:", error);
-      });
-  }, []);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
   // Compute minDate and maxDate based on selectedStorm
-  const { minDate, maxDate } = useMemo(() => {
+  const { date } = useMemo(() => {
     if (!stormData || !selectedStorm) {
       return { minDate: null, maxDate: null };
     }
@@ -58,56 +166,98 @@ const App: React.FC = () => {
 
     // Sort dates to find min and max
     dates.sort();
-    setSelectedDate(stringToDate(dates[0]));
     return {
-      minDate: dates[0],
-      maxDate: dates[dates.length - 1],
+      date: dates[0],
     };
   }, [stormData, selectedStorm]);
-
-  const handleDateChange = (date: Date) => {
-    setSelectedDate(date);
-  };  
 
   return (
     <Router>
       <div className="app-grid">
-        <NavBar />
-        <HeadLine />
-        <div className="col1"></div>
-        <div className="col1">
-          <Link to="/">
-            <Tab>TC Intensity Forecast</Tab>
-          </Link>
-        </div>
-        <div className="col2"></div>
-        <div className="col1"></div>
-        <div className="col3">
-          <hr />
-        </div>
-        <div className="col1">
-          <FilterBox
-            stormData={stormData}
-            selectedStorm={selectedStorm}
-            onSelectStorm={setSelectedStorm}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="col1">
+                  <FilterBox
+                    stormData={stormData}
+                    selectedStorm={selectedStorm}
+                    onSelectStorm={setSelectedStorm}
+                    selectedDate={selectedDate}
+                    onSelectDate={setSelectedDate}
+                  />
+                  <div className="vertical-divider"></div>
+                </div>
+                <div className="col4 content">
+                  <HeadLine>
+                    AI-based Meteorological And Hydrological Forecasting
+                  </HeadLine>
+                  <div className="tags-container">
+                    <div className="first-tag chosen-tag">
+                      <Link to="/">
+                        <div className="chosen-tag-text">
+                          TC Intensity Estimate
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="last-tag tag">
+                      <Link to="/precipitation">
+                        <div className="tag-text">Precipitation Prediction</div>
+                      </Link>
+                    </div>
+                  </div>
+                  <Content
+                    stormData={stormData}
+                    selectedStorm={selectedStorm}
+                    date={selectedDate || new Date()}
+                  />
+                </div>
+              </>
+            }
           />
-          <div className="vertical-divider"></div>
-        </div>
-        <div className="col3">
-          <Content
-            stormData={stormData}
-            selectedStorm={selectedStorm}
-            selectedDate={selectedDate}
+          <Route
+            path="/precipitation"
+            element={
+              <>
+                <div className="col1">
+                  <FilterBox
+                    stormData={stormData}
+                    selectedStorm={selectedStorm}
+                    onSelectStorm={setSelectedStorm}
+                    selectedDate={selectedDate}
+                    onSelectDate={setSelectedDate}
+                  />
+                  <div className="vertical-divider"></div>
+                </div>
+                <div className="col4 content">
+                  <HeadLine>
+                    AI-based Meteorological And Hydrological Forecasting
+                  </HeadLine>
+                  <div className="tags-container">
+                    <div className="first-tag chosen-tag">
+                      <Link to="/">
+                        <div className="chosen-tag-text">
+                          TC Intensity Estimate
+                        </div>
+                      </Link>
+                    </div>
+                    <div className="last-tag tag">
+                      <Link to="/precipitation">
+                        <div className="tag-text">Precipitation Prediction</div>
+                      </Link>
+                    </div>
+                  </div>
+                  <Content
+                    stormData={stormData}
+                    selectedStorm={selectedStorm}
+                    date={selectedDate || new Date()}
+                  />
+                </div>
+              </>
+            }
           />
-          {selectedStorm && minDate && maxDate && (
-            <DateSlider
-              selectedDate={selectedDate ? selectedDate : stringToDate(minDate)}
-              onDateChange={handleDateChange}
-              minDate={minDate}
-              maxDate={maxDate}
-            />
-          )}
-        </div>
+        </Routes>
       </div>
     </Router>
   );
