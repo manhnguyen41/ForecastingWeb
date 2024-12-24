@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import HeadLine from "./component/HeadLine/HeadLine";
 import FilterBox from "./component/FilterBox/FilterBox";
@@ -20,121 +20,121 @@ const App: React.FC = () => {
   const [stormData] = useState<any>({
     "2023": {
       "2309_SAOLA": {
-        "20230826": [
-          "public\\images\\2023\\2309_SAOLA\\20230826\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230826\\forecast.png",
-        ],
         "20230902": [
-          "public\\images\\2023\\2309_SAOLA\\20230902\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230902\\forecast.png",
+          "./././images/2023/2309_SAOLA/20230902\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230902\\forecast.png",
         ],
-        "20230828": [
-          "public\\images\\2023\\2309_SAOLA\\20230828\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230828\\forecast.png",
-        ],
-        "20230901": [
-          "public\\images\\2023\\2309_SAOLA\\20230901\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230901\\forecast.png",
-        ],
-        "20230831": [
-          "public\\images\\2023\\2309_SAOLA\\20230831\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230831\\forecast.png",
+        "20230826": [
+          "./././images/2023/2309_SAOLA/20230826\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230826\\forecast.png",
         ],
         "20230825": [
-          "public\\images\\2023\\2309_SAOLA\\20230825\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230825\\forecast.png",
-        ],
-        "20230827": [
-          "public\\images\\2023\\2309_SAOLA\\20230827\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230827\\forecast.png",
+          "./././images/2023/2309_SAOLA/20230825\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230825\\forecast.png",
         ],
         "20230829": [
-          "public\\images\\2023\\2309_SAOLA\\20230829\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230829\\forecast.png",
+          "./././images/2023/2309_SAOLA/20230829\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230829\\forecast.png",
         ],
         "20230830": [
-          "public\\images\\2023\\2309_SAOLA\\20230830\\tracking.png",
-          "public\\images\\2023\\2309_SAOLA\\20230830\\forecast.png",
+          "./././images/2023/2309_SAOLA/20230830\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230830\\forecast.png",
         ],
-      },
-      "2314_KOINU": {
-        "20231009": [
-          "public\\images\\2023\\2314_KOINU\\20231009\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231009\\forecast.png",
+        "20230831": [
+          "./././images/2023/2309_SAOLA/20230831\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230831\\forecast.png",
         ],
-        "20231002": [
-          "public\\images\\2023\\2314_KOINU\\20231002\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231002\\forecast.png",
+        "20230901": [
+          "./././images/2023/2309_SAOLA/20230901\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230901\\forecast.png",
         ],
-        "20231003": [
-          "public\\images\\2023\\2314_KOINU\\20231003\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231003\\forecast.png",
+        "20230827": [
+          "./././images/2023/2309_SAOLA/20230827\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230827\\forecast.png",
         ],
-        "20230930": [
-          "public\\images\\2023\\2314_KOINU\\20230930\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20230930\\forecast.png",
-        ],
-        "20231005": [
-          "public\\images\\2023\\2314_KOINU\\20231005\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231005\\forecast.png",
-        ],
-        "20231004": [
-          "public\\images\\2023\\2314_KOINU\\20231004\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231004\\forecast.png",
-        ],
-        "20231006": [
-          "public\\images\\2023\\2314_KOINU\\20231006\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231006\\forecast.png",
-        ],
-        "20231007": [
-          "public\\images\\2023\\2314_KOINU\\20231007\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231007\\forecast.png",
-        ],
-        "20231001": [
-          "public\\images\\2023\\2314_KOINU\\20231001\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231001\\forecast.png",
-        ],
-        "20231008": [
-          "public\\images\\2023\\2314_KOINU\\20231008\\tracking.png",
-          "public\\images\\2023\\2314_KOINU\\20231008\\forecast.png",
+        "20230828": [
+          "./././images/2023/2309_SAOLA/20230828\\tracking.png",
+          "./././images/2023/2309_SAOLA/20230828\\forecast.png",
         ],
       },
       "2305_DOKSURI": {
-        "20230724": [
-          "public\\images\\2023\\2305_DOKSURI\\20230724\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230724\\forecast.png",
-        ],
-        "20230729": [
-          "public\\images\\2023\\2305_DOKSURI\\20230729\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230729\\forecast.png",
-        ],
-        "20230723": [
-          "public\\images\\2023\\2305_DOKSURI\\20230723\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230723\\forecast.png",
+        "20230721": [
+          "./././images/2023/2305_DOKSURI/20230721\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230721\\forecast.png",
         ],
         "20230727": [
-          "public\\images\\2023\\2305_DOKSURI\\20230727\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230727\\forecast.png",
-        ],
-        "20230726": [
-          "public\\images\\2023\\2305_DOKSURI\\20230726\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230726\\forecast.png",
-        ],
-        "20230725": [
-          "public\\images\\2023\\2305_DOKSURI\\20230725\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230725\\forecast.png",
-        ],
-        "20230728": [
-          "public\\images\\2023\\2305_DOKSURI\\20230728\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230728\\forecast.png",
+          "./././images/2023/2305_DOKSURI/20230727\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230727\\forecast.png",
         ],
         "20230722": [
-          "public\\images\\2023\\2305_DOKSURI\\20230722\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230722\\forecast.png",
+          "./././images/2023/2305_DOKSURI/20230722\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230722\\forecast.png",
         ],
-        "20230721": [
-          "public\\images\\2023\\2305_DOKSURI\\20230721\\tracking.png",
-          "public\\images\\2023\\2305_DOKSURI\\20230721\\forecast.png",
+        "20230728": [
+          "./././images/2023/2305_DOKSURI/20230728\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230728\\forecast.png",
+        ],
+        "20230729": [
+          "./././images/2023/2305_DOKSURI/20230729\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230729\\forecast.png",
+        ],
+        "20230724": [
+          "./././images/2023/2305_DOKSURI/20230724\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230724\\forecast.png",
+        ],
+        "20230725": [
+          "./././images/2023/2305_DOKSURI/20230725\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230725\\forecast.png",
+        ],
+        "20230726": [
+          "./././images/2023/2305_DOKSURI/20230726\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230726\\forecast.png",
+        ],
+        "20230723": [
+          "./././images/2023/2305_DOKSURI/20230723\\tracking.png",
+          "./././images/2023/2305_DOKSURI/20230723\\forecast.png",
+        ],
+      },
+      "2314_KOINU": {
+        "20231005": [
+          "./././images/2023/2314_KOINU/20231005\\tracking.png",
+          "./././images/2023/2314_KOINU/20231005\\forecast.png",
+        ],
+        "20231002": [
+          "./././images/2023/2314_KOINU/20231002\\tracking.png",
+          "./././images/2023/2314_KOINU/20231002\\forecast.png",
+        ],
+        "20231007": [
+          "./././images/2023/2314_KOINU/20231007\\tracking.png",
+          "./././images/2023/2314_KOINU/20231007\\forecast.png",
+        ],
+        "20230930": [
+          "./././images/2023/2314_KOINU/20230930\\tracking.png",
+          "./././images/2023/2314_KOINU/20230930\\forecast.png",
+        ],
+        "20231004": [
+          "./././images/2023/2314_KOINU/20231004\\tracking.png",
+          "./././images/2023/2314_KOINU/20231004\\forecast.png",
+        ],
+        "20231008": [
+          "./././images/2023/2314_KOINU/20231008\\tracking.png",
+          "./././images/2023/2314_KOINU/20231008\\forecast.png",
+        ],
+        "20231003": [
+          "./././images/2023/2314_KOINU/20231003\\tracking.png",
+          "./././images/2023/2314_KOINU/20231003\\forecast.png",
+        ],
+        "20231009": [
+          "./././images/2023/2314_KOINU/20231009\\tracking.png",
+          "./././images/2023/2314_KOINU/20231009\\forecast.png",
+        ],
+        "20231006": [
+          "./././images/2023/2314_KOINU/20231006\\tracking.png",
+          "./././images/2023/2314_KOINU/20231006\\forecast.png",
+        ],
+        "20231001": [
+          "./././images/2023/2314_KOINU/20231001\\tracking.png",
+          "./././images/2023/2314_KOINU/20231001\\forecast.png",
         ],
       },
     },
