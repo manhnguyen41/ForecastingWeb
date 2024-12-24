@@ -227,6 +227,15 @@
   word-wrap: break-word;
 }
 
+.storm-title-chosen {
+  color: red;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0.15px;
+  word-wrap: break-word;
+}
+
 .storm-date {
   color: white;
   font-size: 19px;

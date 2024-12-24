@@ -29,8 +29,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({
     setFilterText(newFilterText);
   };
 
-  // const yearOptions: string[] = stormData ? Object.keys(stormData) : [];
-
   const formatDate = (date: Date) =>
     `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth() + 1)
       .toString()
@@ -61,24 +59,31 @@ const FilterBox: React.FC<FilterBoxProps> = ({
     return null;
   };
 
-  const StormsForYear: React.FC<{ year: string; filterText: string }> = ({
-    year,
-    filterText,
-  }) => {
-    const storms = stormData ? Object.keys(stormData[year]) : [];
+  const StormsList: React.FC<{ filterText: string }> = ({ filterText }) => {
+    const allStorms: { storm: string; year: string }[] = [];
 
-    const filteredStorms = storms.filter((storm) =>
+    // Duyệt qua tất cả các năm và thêm các cơn bão vào danh sách
+    Object.keys(stormData || {}).forEach((year) => {
+      Object.keys(stormData![year]).forEach((storm) => {
+        allStorms.push({ storm, year });
+      });
+    });
+
+    // Lọc danh sách theo từ khóa tìm kiếm
+    const filteredStorms = allStorms.filter(({ storm }) =>
       storm.toLowerCase().includes(filterText.toLowerCase())
     );
 
+    // Cập nhật số lượng matching
     setNumOfMatchings(filteredStorms.length);
 
     return (
       <>
         {filteredStorms.length > 0 ? (
-          filteredStorms.map((storm) => (
+          filteredStorms.map(({ storm, year }) => (
             <div
               className="storm-container"
+              key={storm}
               onClick={() => {
                 onSelectStorm(storm);
                 onSelectDate(
@@ -92,7 +97,11 @@ const FilterBox: React.FC<FilterBoxProps> = ({
                 </div>
               </div>
               <div className="storm-details">
-                <div className="storm-title">{storm}</div>
+                {storm === selectedStorm ? (
+                  <div className="storm-title-chosen">{storm}</div>
+                ) : (
+                  <div className="storm-title">{storm}</div>
+                )}
                 <div className="storm-date">
                   {formatDate(
                     getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
@@ -106,7 +115,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
             </div>
           ))
         ) : (
-          <></>
+          <div className="no-storms">No storms found</div>
         )}
       </>
     );
@@ -130,7 +139,10 @@ const FilterBox: React.FC<FilterBoxProps> = ({
       <div className="filter-box-title">TC Intensity Estimate</div>
       <div className="search-box-container">
         <div className="search-icon-box">
-          <img src="icon/search_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Search Icon" />
+          <img
+            src="icon/search_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+            alt="Search Icon"
+          />
         </div>
         <input
           type="text"
@@ -150,11 +162,13 @@ const FilterBox: React.FC<FilterBoxProps> = ({
                 : "Select a date"}
             </div>
             <div className="calendar-date-icon">
-              <img src="/icon/calendar_today_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="calendar"></img>
+              <img
+                src="/icon/calendar_today_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="calendar"
+              ></img>
             </div>
           </div>
         </div>
-        {/* DatePicker dưới dạng popup */}
         {showDatePicker && (
           <div className="datepicker-popup">
             <DatePicker
@@ -171,7 +185,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
         <span className="matching-text-bold">{numOfMatchings}</span>
         <span className="matching-text-normal">Matching</span>
       </div>
-      <StormsForYear year={"2023"} filterText={filterText} />
+      <StormsList filterText={filterText} />
     </div>
   );
 };
