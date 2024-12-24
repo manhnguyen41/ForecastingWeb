@@ -124,12 +124,12 @@ const FilterBox: React.FC<FilterBoxProps> = ({
     <div className="filter-box">
       <div className="logo">
         <img src="/logo1.png" alt="Logo" />
-        <img src="/logo2.png" alt="Logo" />
+        <img src="/512px.svg" alt="Logo" />
       </div>
       <div className="filter-box-title">TC Intensity Estimate</div>
       <div className="search-box-container">
         <div className="search-icon-box">
-          <img src="/icon/Search.svg" alt="Search Icon" />
+          <img src="icon/search_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Search Icon" />
         </div>
         <input
           type="text"
@@ -149,7 +149,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
                 : "Select a date"}
             </div>
             <div className="calendar-date-icon">
-              <img src="/icon/CalendarOutlined.svg" alt="calendar"></img>
+              <img src="/icon/calendar_today_25dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="calendar"></img>
             </div>
           </div>
         </div>
