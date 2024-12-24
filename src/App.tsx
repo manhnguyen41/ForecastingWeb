@@ -1,22 +1,20 @@
-import React, { useState, useMemo } from "react";
+import React, { useState} from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import HeadLine from "./component/HeadLine/HeadLine";
 import FilterBox from "./component/FilterBox/FilterBox";
-import Tab from "./component/Tab/Tab";
 import Content from "./component/Content/Content";
 import "./App.css";
-import PrecipitationPrediction from "./component/PrecipitationPrediction/PrecipitationPrediction";
 
-const stringToDate = (date: string) => {
-  const year = parseInt(date.substring(0, 4));
-  const month = parseInt(date.substring(4, 6)) - 1;
-  const day = parseInt(date.substring(6, 8));
+// const stringToDate = (date: string) => {
+//   const year = parseInt(date.substring(0, 4));
+//   const month = parseInt(date.substring(4, 6)) - 1;
+//   const day = parseInt(date.substring(6, 8));
 
-  // Create a Date object
-  const dateObj = new Date(year, month, day);
+//   // Create a Date object
+//   const dateObj = new Date(year, month, day);
 
-  return dateObj;
-};
+//   return dateObj;
+// };
 
 const App: React.FC = () => {
   const [stormData] = useState<any>({
@@ -145,31 +143,31 @@ const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
 
   // Compute minDate and maxDate based on selectedStorm
-  const { date } = useMemo(() => {
-    if (!stormData || !selectedStorm) {
-      return { minDate: null, maxDate: null };
-    }
+  // const { date } = useMemo(() => {
+  //   if (!stormData || !selectedStorm) {
+  //     return { minDate: null, maxDate: null };
+  //   }
 
-    const years = Object.keys(stormData);
-    let dates: string[] = [];
+  //   const years = Object.keys(stormData);
+  //   let dates: string[] = [];
 
-    years.forEach((year) => {
-      if (stormData[year]?.[selectedStorm]) {
-        const stormDates = Object.keys(stormData[year][selectedStorm]);
-        dates.push(...stormDates);
-      }
-    });
+  //   years.forEach((year) => {
+  //     if (stormData[year]?.[selectedStorm]) {
+  //       const stormDates = Object.keys(stormData[year][selectedStorm]);
+  //       dates.push(...stormDates);
+  //     }
+  //   });
 
-    if (dates.length === 0) {
-      return { minDate: null, maxDate: null };
-    }
+  //   if (dates.length === 0) {
+  //     return { minDate: null, maxDate: null };
+  //   }
 
-    // Sort dates to find min and max
-    dates.sort();
-    return {
-      date: dates[0],
-    };
-  }, [stormData, selectedStorm]);
+  //   // Sort dates to find min and max
+  //   dates.sort();
+  //   return {
+  //     date: dates[0],
+  //   };
+  // }, [stormData, selectedStorm]);
 
   return (
     <Router>

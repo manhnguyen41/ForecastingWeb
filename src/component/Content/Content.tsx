@@ -1,6 +1,5 @@
 import React from "react";
 import "./Content.css";
-import HeadLine from "../HeadLine/HeadLine";
 
 interface ContentProps {
   stormData: {

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './DateSlider.css';
 
-const stringToDate = (date: string) => {
-  const year = parseInt(date.substring(0, 4));
-  const month = parseInt(date.substring(4, 6)) - 1;
-  const day = parseInt(date.substring(6, 8));
+// const stringToDate = (date: string) => {
+//   const year = parseInt(date.substring(0, 4));
+//   const month = parseInt(date.substring(4, 6)) - 1;
+//   const day = parseInt(date.substring(6, 8));
 
-  // Create a Date object
-  const dateObj = new Date(year, month, day);
-  return dateObj;
-}
+//   // Create a Date object
+//   const dateObj = new Date(year, month, day);
+//   return dateObj;
+// }
 
 interface DateSliderProps {
   selectedDate: Date;
