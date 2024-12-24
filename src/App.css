@@ -1,19 +1,19 @@
 .app-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   background-color: #f8f8f8;
 }
 
 html {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Calibri', sans-serif;
 }
 
 .navbar {
-  grid-column: span 5; /* Make NavBar span all columns */
+  grid-column: span 4; /* Make NavBar span all columns */
 }
 
 .headline {
-  grid-column: span 5; /* Make HeadLine span all columns */
+  grid-column: span 4; /* Make HeadLine span all columns */
 }
 
 .col1 {
@@ -30,10 +30,6 @@ html {
 
 .col4 {
   grid-column: span 4; /* Make Column 4 span all columns */
-}
-
-.col5 {
-  grid-column: span 5; /* Make Column 4 span all columns */
 }
 
 
@@ -74,29 +70,28 @@ hr{
 }
 
 .chosen-tag {
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   background: #2F80ED;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
 }
 
 .chosen-tag-text {
   color: white;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 700;
   word-wrap: break-word;
 }
 
 .tag {
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   background: #E0E0E0;
   display: inline-flex;
   justify-content: center;
@@ -106,7 +101,7 @@ hr{
 
 .tag-text {
   color: #444444;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 500;
   word-wrap: break-word;
 }

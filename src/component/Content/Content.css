@@ -30,15 +30,15 @@
 }
 
 .header-container {
-  max-height: 118px;
+  max-height: 136px;
   box-sizing: border-box;
-  padding: 41px 0; /* Giữ nguyên padding cũ */
+  padding: 50px 0; /* Giữ nguyên padding cũ */
   background: linear-gradient(
       171deg,
       rgba(10, 24, 59, 0.8) 0%,
       rgba(35, 63, 139, 0.8) 83%
     ),
-    url("header-background.png"); /* Thêm hình nền từ URL */
+    url("/header-background.png"); /* Thêm hình nền từ URL */
   background-size: cover; /* Hình nền bao phủ toàn bộ box */
   background-repeat: no-repeat; /* Không lặp lại */
   background-position: center; /* Căn giữa hình nền */

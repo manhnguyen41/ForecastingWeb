@@ -299,7 +299,7 @@ const App: React.FC = () => {
                   />
                   <div className="vertical-divider"></div>
                 </div>
-                <div className="col4 content">
+                <div className="col3 content">
                   <HeadLine>
                     AI-based Meteorological And Hydrological Forecasting
                   </HeadLine>
@@ -340,7 +340,7 @@ const App: React.FC = () => {
                   />
                   <div className="vertical-divider"></div>
                 </div>
-                <div className="col4 content">
+                <div className="col3 content">
                   <HeadLine>
                     AI-based Meteorological And Hydrological Forecasting
                   </HeadLine>

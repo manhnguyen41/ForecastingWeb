@@ -54,7 +54,7 @@ const Content: React.FC<ContentProps> = ({
             </div>
           ))
         ) : (
-          <p>Select any storm to see the estimation</p>
+          <h1>Select any storm to see the estimation</h1>
         )}
       </div>
       {/* <div className="detail">

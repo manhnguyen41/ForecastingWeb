@@ -129,9 +129,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
       <div className="filter-box-title">TC Intensity Estimate</div>
       <div className="search-box-container">
         <div className="search-icon-box">
-          <div className="search-icon-box-inner">
-            <img src="/icon/Search.svg" alt="Search Icon" />
-          </div>
+          <img src="/icon/Search.svg" alt="Search Icon" />
         </div>
         <input
           type="text"

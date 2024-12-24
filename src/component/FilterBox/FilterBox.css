@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 0 24px; /* Giữ nguyên padding cũ */
+  padding: 0 6.7796% 19.6078% 6.7796%; /* Giữ nguyên padding cũ */
   background: linear-gradient(
       171deg,
       rgba(10, 24, 59, 0.8) 0%,
@@ -17,46 +17,39 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
 }
 
-.filter-box .year-storms-row {
+.logo {
+  margin: 19.6078% auto 0;
+  width: 57.5163%;
   display: flex;
-  align-items: flex-start;
-  margin-top: 10px;
+  flex-direction: row;
+  align-items: center; /* Đặt hình ảnh ở giữa theo chiều dọc */
+  justify-content: center; /* Đặt các ảnh ở giữa container */
+  gap: 18.1818%; /* Khoảng cách giữa hai ảnh */
 }
 
-.filter-box .year-storms-row span {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.filter-box .storms-list a {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-  color: #333;
-  text-decoration: none;
-}
-
-.filter-box .storms-list a:hover {
-  text-decoration: underline;
+.logo img {
+  width: 40.9091%;
+  border-radius: 50%; /* Bo tròn hình ảnh */
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
 }
 
 .filter-box-title {
+  max-width: 81.3725%;
   width: 100%;
-  margin: 32px auto 0;
+  margin: 10.4575% auto 0;
   text-align: center;
   color: white;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 36px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 48px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
-  box-sizing: border-box;
 }
 
 .search-box-container {
-  width: 100%;
-  margin: 32px auto 0;
-  padding: 8px 14px 8px 14px;
+  width: 93.4641%;
+  margin: 10.4575% auto 0;
+  padding: 4.4264% 4.4264% 4.4264% 4.4264%;
   background: transparent;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
@@ -68,17 +61,9 @@
 }
 
 .search-icon-box {
-  width: 20px;
-  height: 20px;
+  width: 7.7519%;
+  height: 25px;
   position: relative;
-}
-
-.search-icon-box-inner {
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  top: 2.5px;
-  left: 2.5px;
 }
 
 .search-input-box {
@@ -87,10 +72,15 @@
   border: none;
   outline: none;
   color: #ffffff;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 21px;
+  line-height: 27px;
   word-wrap: break-word;
   background: transparent;
+  font-weight: 400;
+}
+
+.search-input-box::placeholder {
+  color: #ffffff; /* Màu placeholder (ví dụ: màu xám nhạt) */
 }
 
 .hr-line {
@@ -99,44 +89,32 @@
   opacity: 0.2; /* Độ mờ */
   background-color: #e0e0e0; /* Màu của đường kẻ */
   border: none; /* Bỏ viền mặc định của hr */
-  margin: 32px 0; /* Khoảng cách trên và dưới */
-}
-
-.logo {
-  margin: 60px auto 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center; /* Đặt hình ảnh ở giữa theo chiều dọc */
-  justify-content: center; /* Đặt các ảnh ở giữa container */
-  gap: 32px; /* Khoảng cách giữa hai ảnh */
-}
-
-.logo img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%; /* Bo tròn hình ảnh */
-  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+  margin: 9.0395% 0; /* Khoảng cách trên và dưới */
 }
 
 .calendar {
   margin-left: auto;
+  width: 100%;
   position: relative; 
   display: inline-block;
 }
 
 .calendar-container {
-  padding: 6px 12px;
+  width: 52.2876%;
+  margin-left: auto;
+  padding: 4.4264% 4.4264% 4.4264% 4.4264%;
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid white;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .calendar-date-display {
   flex: 1 1 0;
-  height: 32px;
+  height: 22px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -147,15 +125,15 @@
 .calendar-date-text {
   flex: 1 1 0;
   color: white;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 27px;
   word-wrap: break-word;
 }
 
 .calendar-date-icon {
-  width: 14px;
-  height: 14px;
+  width: 25px;
+  height: 25px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -173,8 +151,12 @@
   width: auto; /* Để popup tự động thay đổi kích thước theo nội dung */
 }
 
+.react-datepicker {
+  font-family: 'Calibri' !important;
+}
+
 .matching-text {
-  margin-top: 16px;
+  margin-top: 4.5198%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -183,35 +165,33 @@
 
 .matching-text-bold {
   color: white;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-size: 21px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 27px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
 }
 
 .matching-text-normal {
   color: white;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-size: 21px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 27px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
 }
 
 .storm-container {
-  margin-top: 16px;
+  margin-top: 4.5198%;
   width: 100%;
-  padding: 12px 16px;
+  padding: 2% 4.5198%;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid white;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
+  gap: 4.5198%;
   background: transparent;
   box-sizing: border-box;
 }
@@ -223,8 +203,8 @@
 }
 
 .storm-icon-inner {
-  width: 18px;
-  height: 20.6px;
+  width: 24px;
+  height: 24px;
   position: absolute;
   top: 1.7px;
   left: 3px;
@@ -240,18 +220,18 @@
 
 .storm-title {
   color: white;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 29px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
 }
 
 .storm-date {
   color: white;
-  font-size: 14px;
+  font-size: 19px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 29px;
   letter-spacing: 0.15px;
   word-wrap: break-word;
 }
