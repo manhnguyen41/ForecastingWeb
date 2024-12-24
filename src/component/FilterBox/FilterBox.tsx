@@ -15,6 +15,7 @@ interface FilterBoxProps {
 
 const FilterBox: React.FC<FilterBoxProps> = ({
   stormData,
+  selectedStorm,
   onSelectStorm,
   selectedDate,
   onSelectDate,
