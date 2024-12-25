@@ -3,7 +3,7 @@
   justify-content: space-between;
   flex-direction: column;
   background-color: #ffffff;
-  padding: 24px;
+  padding: 40px;
 }
 
 .content-container .image-row {
@@ -48,10 +48,18 @@
 
 .header {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 36px;
   letter-spacing: 0.15px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.image-title {
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
   word-wrap: break-word;
   text-align: center;
 }

@@ -3,7 +3,11 @@ import "./Content.css";
 
 interface ContentProps {
   stormData: {
-    [year: string]: { [month: string]: { [date: string]: {images: [], mse_hres: number, mse_out: number} } };
+    [year: string]: {
+      [month: string]: {
+        [date: string]: { images: []; mse_hres: number; mse_out: number };
+      };
+    };
   } | null;
   selectedStorm: string | null;
   date: Date;
@@ -21,7 +25,7 @@ const Content: React.FC<ContentProps> = ({
   const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed
   const day = date.getDate().toString().padStart(2, "0");
   const dateKey = `${year}${month}${day}`;
-  const stormImages = stormData[year]?.[selectedStorm]?.[dateKey] ?? {};  
+  const stormImages = stormData[year]?.[selectedStorm]?.[dateKey] ?? {};
 
   return (
     <div className="content-container">
@@ -37,19 +41,32 @@ const Content: React.FC<ContentProps> = ({
         {stormImages.images?.length > 0 ? (
           stormImages.images.map((image: string, index: number) => (
             <div key={index} className="image-box">
-              <img loading="lazy" src={image} alt={selectedStorm} />
               {index == 1 ? (
-                <div className="mse-container">
-                  <div className="mse-title">MSE</div>
-                  <div className="mse">Our method: {stormImages.mse_out.toFixed(4)}</div>
-                  <div className="mse">Hres: {stormImages.mse_hres.toFixed(4)}</div>
-                </div>
+                <>
+                  <div className="image-title">{`Intensity forecasting for ${selectedStorm}`}</div>
+                  <div className="image-title">{`from 00:00 ${day}/${month}/${year}`}</div>
+                  <img loading="lazy" src={image} alt={selectedStorm} />
+                  <div className="mse-container">
+                    <div className="mse-title">MSE</div>
+                    <div className="mse">
+                      Our method: {stormImages.mse_out.toFixed(4)}
+                    </div>
+                    <div className="mse">
+                      Hres: {stormImages.mse_hres.toFixed(4)}
+                    </div>
+                  </div>
+                </>
               ) : (
-                <div className="mse-container hidden">
-                  <div className="mse-title hidden">MSE</div>
-                  <div className="mse hidden">Our method: 100</div>
-                  <div className="mse hidden">Our method: 100</div>
-                </div>
+                <>
+                  <div className="image-title">{`Tropical Cyclone Tracking Map for ${selectedStorm}`}</div>
+                  <div className="image-title">{`from 00:00 ${day}/${month}/${year}`}</div>
+                  <img loading="lazy" src={image} alt={selectedStorm} />
+                  <div className="mse-container hidden">
+                    <div className="mse-title hidden">MSE</div>
+                    <div className="mse hidden">Our method: 100</div>
+                    <div className="mse hidden">Our method: 100</div>
+                  </div>
+                </>
               )}
             </div>
           ))
