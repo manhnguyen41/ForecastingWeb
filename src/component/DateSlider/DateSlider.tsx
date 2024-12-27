@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import './DateSlider.css';
-
-// const stringToDate = (date: string) => {
-//   const year = parseInt(date.substring(0, 4));
-//   const month = parseInt(date.substring(4, 6)) - 1;
-//   const day = parseInt(date.substring(6, 8));
-
-//   // Create a Date object
-//   const dateObj = new Date(year, month, day);
-//   return dateObj;
-// }
+import React, { useEffect, useState } from "react";
+import { Slider, Box } from "@mui/material";
+import "./DateSlider.css";
+import dateSliderTheme from "./DateSliderTheme";
+import { ThemeProvider } from "@mui/material";
 
 interface DateSliderProps {
   selectedDate: Date;
@@ -18,57 +11,67 @@ interface DateSliderProps {
   maxDate: Date;
 }
 
-const DateSlider: React.FC<DateSliderProps> = ({ 
-  selectedDate, 
-  onDateChange, 
+const DateSlider: React.FC<DateSliderProps> = ({
+  selectedDate,
+  onDateChange,
   minDate,
-  maxDate
+  maxDate,
 }) => {
   const [sliderValue, setSliderValue] = useState(0);
 
   const startDate = minDate;
   const endDate = maxDate;
-  const totalIntervals = Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 6));
+  const totalIntervals = Math.floor(
+    (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 6)
+  );
 
   useEffect(() => {
-    const intervalsDiff = Math.floor((selectedDate.getTime() - startDate.getTime()) / (1000 * 3600 * 6));
+    const intervalsDiff = Math.floor(
+      (selectedDate.getTime() - startDate.getTime()) / (1000 * 3600 * 6)
+    );
     setSliderValue(intervalsDiff);
   }, [selectedDate, startDate]);
 
-  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(event.target.value);
-    setSliderValue(value);
-    const newDate = new Date(startDate.getTime() + value * 6 * 60 * 60 * 1000);
+  const handleSliderChange = (_: Event, value: number | number[]) => {
+    const newValue = Array.isArray(value) ? value[0] : value;
+    setSliderValue(newValue);
+    const newDate = new Date(
+      startDate.getTime() + newValue * 6 * 60 * 60 * 1000
+    );
     onDateChange(newDate);
   };
 
   const formatDate = (date: Date) => {
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0"); 
+    const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
-    const hours = String(date.getHours()).padStart(2, "0");
 
-    // Combine them into a formatted string
-    const formattedDate = `${year}-${month}-${day} ${hours}:00`;
-    return formattedDate;
+    return `${day}/${month}/${year}`;
   };
 
   return (
-    <div className="date-slider">
-      <input
-        type="range"
-        min={0}
-        max={totalIntervals}
-        value={sliderValue}
-        onChange={handleSliderChange}
-        className="slider"
-      />
-      <div className="date-display">
-        {formatDate(new Date(selectedDate.getTime() - 7 * 60 * 60 * 1000))}
-      </div>
-    </div>
+    <Box className="date-slider" sx={{ width: "100%" }}>
+      <ThemeProvider theme={dateSliderTheme}>
+        <Slider
+          value={sliderValue}
+          min={0}
+          max={totalIntervals}
+          step={4}
+          valueLabelDisplay="auto"
+          onChange={handleSliderChange}
+          valueLabelFormat={(value) =>
+            formatDate(
+              new Date(startDate.getTime() + value * 6 * 60 * 60 * 1000)
+            )
+          }
+          marks={[
+            { value: 0, label: formatDate(startDate) },
+            { value: totalIntervals, label: formatDate(endDate) },
+          ]}
+        />
+      </ThemeProvider>
+    </Box>
   );
 };
 
 export default DateSlider;
-
