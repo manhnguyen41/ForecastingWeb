@@ -1,7 +1,6 @@
 import React from "react";
 import "./Content.css";
 import DateSlider from "../DateSlider/DateSlider";
-import { newDate } from "react-datepicker/dist/date_utils";
 
 interface ContentProps {
   stormData: {
