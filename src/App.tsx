@@ -18,6 +18,18 @@ import "./App.css";
 
 const App: React.FC = () => {
   const [stormData] = useState<any>({
+    "2025": {
+      "202503_WIPHA": {
+        "20250718": {
+          images: [
+            "./././images/2025/202503_WIPHA/20250718/tracking.png",
+            "./././images/2025/202503_WIPHA/20250718/forecast.png",
+          ],
+          mse_out: 0,
+          mse_hres: 0,
+        },
+      },
+    },
     "2023": {
       "202305_DOKSURI": {
         "20230728": {
