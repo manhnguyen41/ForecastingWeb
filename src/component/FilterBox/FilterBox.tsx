@@ -74,6 +74,9 @@ const FilterBox: React.FC<FilterBoxProps> = ({
       storm.toLowerCase().includes(filterText.toLowerCase())
     );
 
+    // Sắp xếp danh sách theo tên bão giảm dần (desc)
+    filteredStorms.sort((a, b) => b.storm.localeCompare(a.storm));
+
     // Cập nhật số lượng matching
     setNumOfMatchings(filteredStorms.length);
 
