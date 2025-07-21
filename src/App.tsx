@@ -28,6 +28,14 @@ const App: React.FC = () => {
           mse_out: 0,
           mse_hres: 0,
         },
+        "20250721": {
+          images: [
+            "./././images/2025/202503_WIPHA/20250721/tracking.png",
+            "./././images/2025/202503_WIPHA/20250721/forecast.png",
+          ],
+          mse_out: 0,
+          mse_hres: 0,
+        },
       },
     },
     "2023": {
