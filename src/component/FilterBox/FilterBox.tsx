@@ -124,7 +124,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({
                     onClick={() => {
                       onSelectStorm(storm);
                       onSelectDate(
-                        getMinMaxDatesForStorm(storm)?.minDate ?? new Date()
+                        getMinMaxDatesForStorm(storm)?.maxDate ?? new Date()
                       );
                     }}
                   >
